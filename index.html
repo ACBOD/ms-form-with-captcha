@@ -5,28 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form with reCAPTCHA</title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="config.js"></script> <!-- Reference to the external config file -->
+    <script src="config.js"></script>
 </head>
 <body>
     <h1>Form with reCAPTCHA</h1>
-    
-    <!-- reCAPTCHA Widget -->
     <div class="g-recaptcha" data-sitekey="" data-callback="enableForm" id="recaptcha-widget"></div>
 
-    <!-- Your Microsoft Form Embed Code -->
     <iframe id="msForm" src="https://forms.office.com/Pages/ResponsePage.aspx?id=dCndRAtYUEeHdDyhlc1CMRJ1pQJtDjRFm3wHvy-NwMlURTdJR1hXTEQwNVNONFBLWEZWREpJTVUwSy4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="width:100%; height:2000px; border:none; overflow:hidden; display:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
     
     <script>
-        // Function to dynamically set the reCAPTCHA site key
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('recaptcha-widget').setAttribute('data-sitekey', RECAPTCHA_SITE_KEY);
-
-            // Initially hide the form
             document.getElementById('msForm').style.display = 'none';
         });
 
         function enableForm() {
-            // Function to enable the form when reCAPTCHA is successfully completed
             document.getElementById('msForm').style.display = 'block';
         }
 
